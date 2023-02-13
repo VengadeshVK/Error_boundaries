@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Counter from "./Counter";
+import CustomerName from "./CustomerName";
+import Errorboundaries from "./Errorboundaries";
+import NameErrorBoundary from "./NameErrorBoundary";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NameErrorBoundary>
+        <CustomerName CustomerName='Sam' />
+      </NameErrorBoundary>
+      <NameErrorBoundary>
+        <CustomerName CustomerName='Jhon' />
+      </NameErrorBoundary>
+      <NameErrorBoundary>
+        <CustomerName CustomerName='Ram' />
+      </NameErrorBoundary>
+
+      {/* Another example for error boundary */}
+
+      <Errorboundaries>
+        <Counter />
+      </Errorboundaries>
+      <h3>Second</h3>
+      <Errorboundaries>
+        <Counter />
+      </Errorboundaries>
+
     </div>
   );
 }
